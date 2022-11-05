@@ -20,8 +20,6 @@ const ProductDetails = () => {
     }
   });
 
-  console.log(productInformation);
-
   const firstImage = productInformation.images[0].toString();
   const secondImage = productInformation.images[1].toString();
 

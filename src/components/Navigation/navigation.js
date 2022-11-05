@@ -4,11 +4,12 @@ import WishList from '../WishList/wishList';
 import React, {useState} from 'react';
 import Modal from '../Modal/modal';
 import {useSelector} from "react-redux";
+import {Link} from "react-router-dom";
 
 const Navigation = ({classForNav, blockTitle, fill, updateClassStatus, updateDataSearch}) => {
   const [modalActive, setModalActive] = useState(false);
   const [searchValue, setSearchValue] = useState('');
-  const products=useSelector((state)=>state.productsReducer.products);
+  const products = useSelector((state) => state.productsReducer.products);
 
   const handleInput = (event) => {
     setSearchValue(event.target.value);
@@ -25,7 +26,7 @@ const Navigation = ({classForNav, blockTitle, fill, updateClassStatus, updateDat
 
   const handleKeyDown = async (event) => {
     if (event.key === 'Enter') {
-      const res=findMatchesInArray(searchValue);
+      const res = findMatchesInArray(searchValue);
       if (res.length === 0) {
         alert('No beauty products found');
         return;
@@ -60,9 +61,13 @@ const Navigation = ({classForNav, blockTitle, fill, updateClassStatus, updateDat
             <a href="#" className={classForNav}>
               <SignOut/>
            </a>
-            <a href="#" className={classForNav}>
-              BAG
-            </a>
+
+
+                <Link to={`/cart`}>
+                  BAG
+                </Link>
+
+
             <a href="#" className={classForNav}>
               <WishList fill={fill}/>
             </a>
