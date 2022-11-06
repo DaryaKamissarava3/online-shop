@@ -1,7 +1,8 @@
 import {ADD_TO_CART, CLEAR_CART, REMOVE_FROM_CART} from "../actions/actionTypes";
 
 const initialState = {
-  cart:[]
+  cart:[],
+
 }
 
 const conditionsReducer =(state = initialState, action) =>{

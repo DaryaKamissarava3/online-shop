@@ -1,33 +1,52 @@
 import React from 'react';
 import './cartProduct.css';
+import {useDispatch} from "react-redux";
+import allActions from "../../redux/actions";
 
-const CartProduct = ({name, price, imgUrl,description,availableSizes,color}) => {
+const CartProduct = ({cartItem}) => {
+  const dispatch=useDispatch();
+  console.log('cart product to remove')
+  console.log(cartItem);
+
+  const removeItem=()=>{
+    dispatch(allActions.cartActions.removeFromCart(cartItem));
+  };
+
+  const imageURL = cartItem.images[0].toString();
+
   return (
-
+    <>
       <div className="cart-inner">
         <div className="cart-images ">
           <div>
-            <img src={imgUrl} className="cart-img" alt="img"/>
+            <img src={imageURL} className="cart-img" alt="img"/>
           </div>
         </div>
         <div className="cart-item-description">
-          <div className="cart-description">{description}</div>
+          <div className="cart-description">{cartItem.description}</div>
           <div className="prod-price">
-            <span className="prod-price-currency">{price.currency}</span>
+            <span className="prod-price-currency">{cartItem.price.currency}</span>
             $
-            <span>{price.value}</span>
+            <span>{cartItem.price.value}</span>
           </div>
 
           <div>
             COLOR
             <div className="prod-color-square" style={{
-              backgroundColor: `${color.hex}`,
+              backgroundColor: `${cartItem.color.hex}`,
             }}/>
           </div>
-          <div className="prod-sizes">{availableSizes}</div>
-        </div>
+          <div className="cart-sizes">{cartItem.availableSizes}</div>
 
-    </div>
+          <button
+            style={{color: "grey"}}
+            onClick={removeItem}
+          >
+            REMOVE ITEM
+          </button>
+        </div>
+      </div>
+    </>
   );
 };
 

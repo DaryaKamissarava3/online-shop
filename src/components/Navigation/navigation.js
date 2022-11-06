@@ -7,9 +7,11 @@ import {useSelector} from "react-redux";
 import {Link} from "react-router-dom";
 
 const Navigation = ({classForNav, blockTitle, fill, updateClassStatus, updateDataSearch}) => {
+
   const [modalActive, setModalActive] = useState(false);
   const [searchValue, setSearchValue] = useState('');
   const products = useSelector((state) => state.productsReducer.products);
+  const cartItemsAmount=useSelector((state)=>state.cartReducer.cart);
 
   const handleInput = (event) => {
     setSearchValue(event.target.value);
@@ -44,9 +46,9 @@ const Navigation = ({classForNav, blockTitle, fill, updateClassStatus, updateDat
           <a href="#" className={classForNav}>
             NEW ARRIVALS
           </a>
-          <a href="#" className={classForNav}>
-            SHOP
-          </a>
+          <Link to={`/`} className={classForNav}>
+                  SHOP
+          </Link>
           <a href="#" className={classForNav}>
             COLLECTIONS
           </a>
@@ -62,11 +64,10 @@ const Navigation = ({classForNav, blockTitle, fill, updateClassStatus, updateDat
               <SignOut/>
            </a>
 
-
-                <Link to={`/cart`}>
+            <Link to={`/cart`} className={classForNav}>
                   BAG
-                </Link>
-
+              <span className="cart-items-amount">({cartItemsAmount.length})</span>
+            </Link>
 
             <a href="#" className={classForNav}>
               <WishList fill={fill}/>
