@@ -1,4 +1,4 @@
-import React from 'react';
+import React, {useState} from 'react';
 import {useSelector} from "react-redux";
 import Navigation from "../Navigation/navigation";
 import CartProduct from "../CartProduct/cartProduct";
@@ -9,7 +9,6 @@ import Subscription from "../Subscription/subscription";
 import Footer from "../Footer/footer";
 
 const Cart = () => {
-
   const allProductsInCart = useSelector((state) => state.cartReducer.cart);
 
   const countTotalSum = (arrOfProducts) => {

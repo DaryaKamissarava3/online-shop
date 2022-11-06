@@ -5,7 +5,7 @@ import cartActions from "./cartActions";
 const allActions = {
   userActions,
   productsAction,
-  cartActions
+  cartActions,
 }
 
 export default allActions;

@@ -23,6 +23,7 @@ const ProductDetails = () => {
   const firstImage = productInformation.images[0].toString();
   const secondImage = productInformation.images[1].toString();
 
+
   return (
     <>
       <section className="product-details">
@@ -56,7 +57,7 @@ const ProductDetails = () => {
               <div className="prod-sizes">{productInformation.availableSizes}</div>
               <div className="buttons-to-add">
 
-                <BagButton inf={productInformation}/>
+                <BagButton inf={productInformation} />
 
                 <button className="wish-button">
                   <WishList fill="white"/>

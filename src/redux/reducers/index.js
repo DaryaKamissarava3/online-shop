@@ -6,10 +6,12 @@ import userReducer from "./userReducer";
 import productsReducer from "./productsReducer";
 import cartReducer from "./cartReducer";
 
+
 const rootReducer = combineReducers({
   userReducer,
   productsReducer,
-  cartReducer
+  cartReducer,
+
 });
 
 const persistConfig = {

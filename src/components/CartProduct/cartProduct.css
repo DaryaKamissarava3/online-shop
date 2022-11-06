@@ -59,16 +59,13 @@
   margin-top: 20px;
   font-size: 24px;
 }
-
-.buttons-to-add {
-  display: flex;
+.cart-quantity{
+  font-size: 26px;
+  margin: 20px 0;
 }
-
-.wish-button {
-  margin-top: 40px;
-  margin-left: 2px;
-  width: 98px;
-  height: 90px;
-  cursor: pointer;
-  background-color: #000F08;
+.select-quantity{
+  margin-left: 10px;
+  width: 80px;
+  font-size: 26px;
+  border: none;
 }

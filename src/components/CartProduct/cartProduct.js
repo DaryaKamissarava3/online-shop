@@ -1,17 +1,24 @@
-import React, {useEffect, useState} from 'react';
+import React, {useState} from 'react';
 import './cartProduct.css';
-import {useDispatch, useSelector} from "react-redux";
+import {useDispatch} from "react-redux";
 import allActions from "../../redux/actions";
 
 const CartProduct = ({cartItem}) => {
 
-  const dispatch=useDispatch();
+  const dispatch = useDispatch();
 
-  const removeItem=()=>{
+  const removeItem = () => {
     dispatch(allActions.cartActions.removeFromCart(cartItem));
   };
 
   const imageURL = cartItem.images[0].toString();
+
+  const [select, setSelect] = useState("");
+  const amountOfProduct = [1, 2, 3, 4, 5];
+  const options = amountOfProduct.map((amountOfProduct, i) =>
+    <option key={i}>{amountOfProduct}</option>
+  );
+  console.log(cartItem.price.value*select);
 
   return (
     <>
@@ -37,6 +44,19 @@ const CartProduct = ({cartItem}) => {
           </div>
           <div className="cart-sizes">{cartItem.availableSizes}</div>
 
+          <div className="cart-quantity">
+            QUANTITY:
+            <select
+              value={select}
+              onChange={(e) => setSelect(e.target.value)}
+              className="select-quantity"
+            >
+              {options}
+            </select>
+            {/*<span>{quantity}</span>*/}
+            {/*<button onClick={() =>quantityDispatch(allActions.cartActions.increaseItemQuantity())}>+</button>*/}
+            {/*<button onClick={() =>quantityDispatch(allActions.cartActions.decreaseItemQuantity())}>-</button>*/}
+          </div>
           <button
             style={{color: "grey"}}
             onClick={removeItem}

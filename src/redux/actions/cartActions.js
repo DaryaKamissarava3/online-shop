@@ -2,8 +2,8 @@ import {
   ADD_TO_CART,
   REMOVE_FROM_CART,
   CLEAR_CART,
-  INCREASE_ITEM_CART,
-  DECREASE_ITEM_CART,
+  TOTAL_AMOUNT_OF_CART,
+  QUANTITY
 } from "./actionTypes";
 
 const addToCart = (product) => ({
@@ -20,20 +20,20 @@ const clearCart = () => ({
   type: CLEAR_CART,
 });
 
-const increaseItemQuantity = (product) => ({
-  type: INCREASE_ITEM_CART,
-  payload: product
+const cartItemSum = (payload) => ({
+  type: TOTAL_AMOUNT_OF_CART,
+  payload:payload
 });
 
-const decreaseItemQuantity = (product) => ({
-  type: DECREASE_ITEM_CART,
-  payload: product
+const cartItemQuantity = (payload) => ({
+  type: QUANTITY,
+  payload:payload
 });
 
 export default {
   addToCart,
   removeFromCart,
   clearCart,
-  increaseItemQuantity,
-  decreaseItemQuantity,
+  cartItemSum,
+  cartItemQuantity
 };

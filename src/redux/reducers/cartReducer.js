@@ -1,7 +1,8 @@
-import {ADD_TO_CART, CLEAR_CART, REMOVE_FROM_CART} from "../actions/actionTypes";
+import {ADD_TO_CART, CLEAR_CART, INCREASE_QUANTITY, REMOVE_FROM_CART} from "../actions/actionTypes";
 
 const initialState = {
   cart: [],
+  quantity: 0,
   totalAmount: 0
 }
 
@@ -11,6 +12,7 @@ const conditionsReducer = (state = initialState, action) => {
       return {
         ...state,
         cart: [...state.cart, action.payload],
+        quantity: action.payload,
       };
     case REMOVE_FROM_CART:
       return {
