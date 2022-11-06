@@ -1,12 +1,11 @@
-import React from 'react';
+import React, {useEffect, useState} from 'react';
 import './cartProduct.css';
-import {useDispatch} from "react-redux";
+import {useDispatch, useSelector} from "react-redux";
 import allActions from "../../redux/actions";
 
 const CartProduct = ({cartItem}) => {
+
   const dispatch=useDispatch();
-  console.log('cart product to remove')
-  console.log(cartItem);
 
   const removeItem=()=>{
     dispatch(allActions.cartActions.removeFromCart(cartItem));
@@ -42,7 +41,7 @@ const CartProduct = ({cartItem}) => {
             style={{color: "grey"}}
             onClick={removeItem}
           >
-            REMOVE ITEM
+            REMOVE
           </button>
         </div>
       </div>

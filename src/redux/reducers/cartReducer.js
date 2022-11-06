@@ -1,26 +1,26 @@
 import {ADD_TO_CART, CLEAR_CART, REMOVE_FROM_CART} from "../actions/actionTypes";
 
 const initialState = {
-  cart:[],
-
+  cart: [],
+  totalAmount: 0
 }
 
-const conditionsReducer =(state = initialState, action) =>{
-  switch(action.type){
+const conditionsReducer = (state = initialState, action) => {
+  switch (action.type) {
     case ADD_TO_CART:
       return {
         ...state,
-        cart: [...state.cart,action.payload]
+        cart: [...state.cart, action.payload],
       };
     case REMOVE_FROM_CART:
       return {
         ...state,
-        cart: [...state.cart.filter(item => item.id !== action.payload.id)]
+        cart: [...state.cart.filter(item => item.id !== action.payload.id)],
       };
     case CLEAR_CART:
       return {
         ...state,
-        cart:[]
+        cart: []
       };
     default:
       return state;
